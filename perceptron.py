@@ -5,9 +5,8 @@ class Perceptron:
     def __init__(self, no_of_inputs, epochs=100, learning_rate=0.01):
         self.epochs = epochs
         self.learning_rate = learning_rate
-        self.weights = np.zeros(no_of_inputs + 1) # creating array of zeros equal
-                                                  # to the number of inputs + 1
-           
+        self.weights = np.zeros(no_of_inputs + 1) # creating array of zeros equal to the number of inputs + 1
+                                                  
     def predict(self, inputs): # activation function predicting the output
         summation = np.dot(inputs, self.weights[1:]) + self.weights[0]
         if summation > 0:
