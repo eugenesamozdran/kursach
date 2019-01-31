@@ -37,7 +37,7 @@ with open("training_img_data.txt", "r") as f:
     labels = f.read().replace('[','').replace(']','').replace(' ','').split(',')
 
 # Creating an array of expected outputs
-labels = np.array([int(labels[i]) for i in range(0, len(labels))])
+labels = np.array([int(labels[i]) for i in range(len(labels))])
 
 # Creating Perceptron object and training it
 perceptron = Perceptron(1)
