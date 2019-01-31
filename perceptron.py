@@ -10,10 +10,9 @@ class Perceptron:
     def predict(self, inputs): # activation function predicting the output
         summation = np.dot(inputs, self.weights[1:]) + self.weights[0]
         if summation > 0:
-            activation = 1
+            return 1
         else:
-            activation = 0
-        return activation
+            return 0
 
     def train(self, training_inputs, labels): # weights update function
         for _ in range(self.epochs):
