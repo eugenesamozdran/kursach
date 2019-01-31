@@ -11,9 +11,10 @@ class Perceptron:
     def predict(self, inputs): # activation function predicting the output
         summation = np.dot(inputs, self.weights[1:]) + self.weights[0]
         if summation > 0:
-            return 1
+            activation = 1
         else:
-            return 0
+            activation = 0
+        return activation
 
     def train(self, training_inputs, labels): # weights update function
         for _ in range(self.epochs):
@@ -38,5 +39,19 @@ with open("training_img_data.txt", "r") as f:
 # Creating an array of expected outputs
 labels = np.array([int(labels[i]) for i in range(0, len(labels))])
 
-perceptron = Perceptron(2500)
+# Creating Perceptron object and training it
+perceptron = Perceptron(1)
 perceptron.train(training_inputs, labels)
+
+# Forming test image data for perceptron to try to predict it
+with open("testing_img_data.txt", "r") as f:
+    
+    # Cleaning the string from the file again
+    test_img_pixels = f.read().replace('[','').replace(']','').replace(' ','').split(',')
+
+test_img_pixels = [int(test_img_pixels[i]) for i in range(len(test_img_pixels))]
+
+# Creating a list of arrays taht should be passed as an input to predict function
+test_input = [np.array([i]) for i in test_img_pixels]
+
+perceptron.predict(test_input)
