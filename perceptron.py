@@ -27,7 +27,7 @@ class Perceptron:
                 self.weights[1:] += self.learning_rate * (label - prediction) * inputs
                 self.weights[0] += self.learning_rate * (label - prediction)
 
-# Creating a list of 2500 zero arrays
+# Creating an array of 2500 zeroes
 training_inputs = np.array([0 for i in range(2500)])
 
 with open("training_img_data.txt", "r") as f:
@@ -51,7 +51,7 @@ with open("testing_img_data.txt", "r") as f:
 
 test_img_pixels = [int(test_img_pixels[i]) for i in range(len(test_img_pixels))]
 
-# Creating a list of arrays taht should be passed as an input to predict function
+# Creating an array that should be passed as an input to predict function for testing
 test_input = np.array([test_img_pixels])
 
 print(perceptron.predict(test_input))
