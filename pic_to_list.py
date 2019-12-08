@@ -1,6 +1,6 @@
 from PIL import Image
 
-# This piece of code makes a list of 0 and 255 (black and white dots of the contour image with a size 50x50)
+# This piece of code makes a list of 0 and 1 (black and white dots of the contour image with a size 50x50)
 # It also saves the data into txt file.
 
 img = Image.open("testing_prediction_cat_cont.jpg", mode="r")
