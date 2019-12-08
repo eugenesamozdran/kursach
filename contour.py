@@ -1,6 +1,9 @@
 import pylab
 from PIL import Image
 
+# This piece of code is responsible for making a contour of an animal shown on the page. It resizes the given
+# image and makes contour black and white only.
+
 # read image to array
 im = pylab.array(Image.open("testing_prediction_cat.jpg").convert("L"))
 
